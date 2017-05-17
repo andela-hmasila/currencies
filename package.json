@@ -1,0 +1,26 @@
+{
+  "name": "currencies",
+  "version": "1.0.0",
+  "description": "A currencies api built in MEAN. It CRUD countries with their currencies.",
+  "main": "server.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/andela-hmasila/currencies.git"
+  },
+  "keywords": [
+    "currencies",
+    "currency",
+    "quiz",
+    "country"
+  ],
+  "dependencies": {
+    "express": "~4.0.0",
+    "mongoose": "~3.6.13",
+    "body-parser": "~1.0.1"
+  },
+  "author": "Hannah Masila",
+  "license": "ISC"
+}
