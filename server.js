@@ -12,6 +12,7 @@ mongoose.connect(db.url, function(err){
   if(err){
     console.log('Error>>>>>>>>', err);
   }
+  console.log('connected successfully');
 });
 
 // configure app to use bodyParser()
@@ -22,3 +23,5 @@ app.use(bodyParser.json());
 routes(app);
 app.listen(port);
 console.log('Magic happens on port ' + port);
+
+module.exports = app;

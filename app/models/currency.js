@@ -4,10 +4,11 @@ var Schema = mongoose.Schema;
 var CurrencySchema = new Schema({
   country: {
     type: String,
-    required: true
+    required: true,
+    unique: true,
+    index: true
   },
     currency: String
 });
 
-var Currency = mongoose.model('Currency', CurrencySchema);
-module.exports = { conn: Currency }
+module.exports = mongoose.model('Currency', CurrencySchema);
