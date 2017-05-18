@@ -7,8 +7,12 @@ var routes = require('./app/routes');
 
 var app = express();
 var port = process.env.PORT || '5000';
-mongoose.connect(db.url);
-// process.env.MONGODB_URL
+console.log('>>>>>>>>>>', db.url);
+mongoose.connect(db.url, function(err){
+  if(err){
+    console.log('Error>>>>>>>>', err);
+  }
+});
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST

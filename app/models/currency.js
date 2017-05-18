@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var CurrencySchema   = new Schema({
+var CurrencySchema = new Schema({
   country: {
     type: String,
     required: true
@@ -9,4 +9,5 @@ var CurrencySchema   = new Schema({
     currency: String
 });
 
-module.exports = mongoose.model('Currency', CurrencySchema);
+var Currency = mongoose.model('Currency', CurrencySchema);
+module.exports = { conn: Currency }
