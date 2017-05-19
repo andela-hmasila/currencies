@@ -13,10 +13,11 @@ module.exports = function(app) {
     });
   });
 
-  // list all currencies
+  // list currencies
   app.route('/api/currencies')
     .get(function(req, res) {
-      Currency.find({}, function(err, currencies) {
+      var  query = req.query;
+      Currency.find(query, function(err, currencies) {
         if (err) {
           res.json(err)
         } else {
@@ -25,25 +26,25 @@ module.exports = function(app) {
       })
     })
 
-    // create a new currency
-    .post(function(req, res) {
-      var currency = new Currency(req.body);
+  // create a new currency
+  .post(function(req, res) {
+    var currency = new Currency(req.body.data);
 
-      currency.save(function(err) {
-        if (err) {
-          res.send(err);
-        }
-        res.send({
-          message: "Currency Saved Successfully"
-        });
+    currency.save(function(err) {
+      if (err) {
+        res.send(err);
+      }
+      res.send({
+        message: "Currency Saved Successfully"
       });
     });
+  });
 
   app.route('/api/currencies/:id')
 
-  // update a country
+    // update a country
     .put(function(req, res) {
-      var curr = req.body;
+      var curr = req.body.data;
       Currency.findByIdAndUpdate(req.params.id, curr, function(err, currency) {
         if (err) {
           res.send(err)
